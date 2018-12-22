@@ -1,7 +1,7 @@
 package com.github.relucent.base.util.jdbc.impl;
 
 import com.github.relucent.base.util.jdbc.Dialect;
-import com.github.relucent.base.util.sql.SqlUtil;
+import com.github.relucent.base.util.jdbc.SqlUtil;
 
 public abstract class AbstractDialect implements Dialect {
     @Override

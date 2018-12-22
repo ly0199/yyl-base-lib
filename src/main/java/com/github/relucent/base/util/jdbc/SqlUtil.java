@@ -1,4 +1,4 @@
-package com.github.relucent.base.util.sql;
+package com.github.relucent.base.util.jdbc;
 
 import java.util.regex.Pattern;
 
