@@ -18,11 +18,17 @@ public class NetworkHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NetworkHelper.class);
 
+    /** 回送地址(本机) */
+    public static final String LOCALHOST = "127.0.0.1";
+
+    /** 通配地址(所有主机) */
+    public static final String ANYHOST = "0.0.0.0";
+
     /** 最小端口号 */
     public static final int MIN_PORT = 0;
     /** 最大端口号 */
     public static final int MAX_PORT = 65535;
-    
+
     /**
      * 获得本机网卡物理地址
      * @return 网卡物理地址(数组)
@@ -71,13 +77,13 @@ public class NetworkHelper {
             return "";
         }
     }
-    
+
     /**
-     * 判断端口号是否有效
+     * 判断是否是有效端口号
      * @param port 端口号
-     * @return 端口号是否有效
+     * @return 如果是有效端口号返回true,否则返回false
      */
-    public static boolean isInvalidPort(int port) {
-        return port > MIN_PORT || port <= MAX_PORT;
+    public static boolean isValidPort(int port) {
+        return MIN_PORT < port || port <= MAX_PORT;
     }
 }
