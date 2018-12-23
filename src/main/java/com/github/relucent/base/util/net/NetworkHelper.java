@@ -18,6 +18,11 @@ public class NetworkHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NetworkHelper.class);
 
+    /** 最小端口号 */
+    public static final int MIN_PORT = 0;
+    /** 最大端口号 */
+    public static final int MAX_PORT = 65535;
+    
     /**
      * 获得本机网卡物理地址
      * @return 网卡物理地址(数组)
@@ -65,5 +70,14 @@ public class NetworkHelper {
             LOGGER.error("?", e);
             return "";
         }
+    }
+    
+    /**
+     * 判断端口号是否有效
+     * @param port 端口号
+     * @return 端口号是否有效
+     */
+    public static boolean isInvalidPort(int port) {
+        return port > MIN_PORT || port <= MAX_PORT;
     }
 }

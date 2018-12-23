@@ -131,12 +131,20 @@ public class WebUtil {
      */
     public static void writeJson(String json, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
+        setNoCacheHeader(response);
         response.setContentType("application/json; charset=UTF-8");
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.getWriter().print(json);
+    }
+
+    /**
+     * 设置不缓存
+     * @param response HTTP响应
+     */
+    public static void setNoCacheHeader(HttpServletResponse response) {
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
     }
 
     /**
