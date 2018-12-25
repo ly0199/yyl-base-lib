@@ -1,7 +1,5 @@
 package com.github.relucent.base.util.queue;
 
-import java.util.function.Function;
-
 /**
  * 去除重复的元素
  */
@@ -26,6 +24,7 @@ public interface Distinct<T> {
     void clear();
 
     /** 元素摘要类 */
-    @FunctionalInterface
-    public interface DistinctDigester<T> extends Function<T, String> {}
+    public interface DistinctDigester<T> {
+        String apply(Object element);
+    }
 }

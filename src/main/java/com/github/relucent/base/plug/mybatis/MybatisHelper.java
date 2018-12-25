@@ -1,7 +1,6 @@
 package com.github.relucent.base.plug.mybatis;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import com.github.relucent.base.util.jdbc.Dialect;
 import com.github.relucent.base.util.page.Page;
@@ -69,6 +68,7 @@ public class MybatisHelper {
     }
 
     /** 查询方法 */
-    @FunctionalInterface
-    public static interface Select<T> extends Supplier<List<T>> {}
+    public static interface Select<T> {
+        List<T> get();
+    }
 }

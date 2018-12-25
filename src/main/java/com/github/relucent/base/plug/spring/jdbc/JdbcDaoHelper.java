@@ -47,7 +47,7 @@ public class JdbcDaoHelper {
             Dialect dialect) {
         int count = queryCount(sql, args, jdbcTemplate, dialect);
         if (count == 0) {
-            return new Page<T>(offset, limit, new ArrayList<>(), 0);
+            return new Page<T>(offset, limit, new ArrayList<T>(), 0);
         }
         List<T> records = queryLimit(sql, args, offset, limit, rowMapper, jdbcTemplate, dialect);
         return new Page<T>(offset, limit, records, count);
@@ -80,13 +80,13 @@ public class JdbcDaoHelper {
      * @param parallel 是否采用并行查询模式
      * @return 分页查询結果
      */
-    public static <T> Page<T> pagedQuery(String sql, Object[] args, int offset, int limit, RowMapper<T> rowMapper, JdbcTemplate jdbcTemplate,
-            Dialect dialect, boolean parallel) {
+    public static <T> Page<T> pagedQuery(final String sql, final Object[] args, final int offset, final int limit, final RowMapper<T> rowMapper,
+            final JdbcTemplate jdbcTemplate, final Dialect dialect, final boolean parallel) {
         if (!parallel) {
             return pagedQuery(sql, args, offset, limit, rowMapper, jdbcTemplate, dialect);
         }
-        AtomicInteger countReference = new AtomicInteger(0);
-        AtomicReference<List<T>> recordsReference = new AtomicReference<>();
+        final AtomicInteger countReference = new AtomicInteger(0);
+        final AtomicReference<List<T>> recordsReference = new AtomicReference<>();
         ThreadUtil.startAndJoinDaemon(new Runnable() {
             @Override
             public void run() {
