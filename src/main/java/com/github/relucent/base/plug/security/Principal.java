@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 用户登录对象
- * @author _yyl
  */
 @SuppressWarnings("serial")
 public class Principal implements Serializable {

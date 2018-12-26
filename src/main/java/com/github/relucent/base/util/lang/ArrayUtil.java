@@ -1,8 +1,8 @@
 package com.github.relucent.base.util.lang;
 
 /**
- * 集合工具类
- * @author YYL
+ * 数组工具类
+ * @author _yyl
  */
 public class ArrayUtil {
 

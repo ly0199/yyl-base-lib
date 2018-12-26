@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 集合工具类
- * @author YYL
+ * @author _yyl
  */
 public class CollectionUtil {
 

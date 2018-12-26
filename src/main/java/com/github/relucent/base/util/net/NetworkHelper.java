@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 网络信息工具类
- * @author YYL
  */
 public class NetworkHelper {
 

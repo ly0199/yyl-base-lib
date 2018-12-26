@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 /**
  * 日期反序列化
  */
-
 public class BigDecimalPowerDeserializer extends JsonDeserializer<BigDecimal> {
 
     /** Singleton instance to use. */

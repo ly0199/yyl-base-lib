@@ -23,7 +23,6 @@ import com.github.relucent.base.util.collect.Mapx;
 
 /**
  * 类型转换工具类
- * @author _yyl
  */
 public abstract class TreeNodeConverts {
 

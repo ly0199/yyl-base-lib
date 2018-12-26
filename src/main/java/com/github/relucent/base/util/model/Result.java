@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 结果对象
- * @author YYL
  */
 @SuppressWarnings("serial")
 public class Result<T> implements Serializable {

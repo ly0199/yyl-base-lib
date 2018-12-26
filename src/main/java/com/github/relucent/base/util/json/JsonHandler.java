@@ -5,7 +5,6 @@ import com.github.relucent.base.util.collect.Mapx;
 
 public interface JsonHandler {
 
-
     /**
      * 将Java对象转化为JSON字符串
      * @param obj java对象

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 认证令牌
- * @author _yyl
  */
 @SuppressWarnings("serial")
 public class AuthToken implements Serializable {

@@ -5,11 +5,9 @@ import java.io.StringReader;
 import com.github.relucent.base.util.collect.Listx;
 import com.github.relucent.base.util.collect.Mapx;
 
-
-
 /**
  * JSON编码工具类，将JAVA对象编码为JSON字符串。
- * @author YaoYiLang
+ * @author _yyl
  * @version 1.0
  */
 public class JsonDecoder {

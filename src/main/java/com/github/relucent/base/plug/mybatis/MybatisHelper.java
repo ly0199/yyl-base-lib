@@ -8,7 +8,7 @@ import com.github.relucent.base.util.page.Pagination;
 
 /**
  * _Mybatis 分页工具类<br/>
- * @author YYL
+ * @author _yyl
  */
 public class MybatisHelper {
 
