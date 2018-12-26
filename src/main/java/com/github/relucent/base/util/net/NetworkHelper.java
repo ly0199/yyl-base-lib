@@ -3,9 +3,11 @@ package com.github.relucent.base.util.net;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,11 @@ public class NetworkHelper {
     public static final int MIN_PORT = 0;
     /** 最大端口号 */
     public static final int MAX_PORT = 65535;
+
+    /** IPv4 正则 */
+    private static final Pattern IPV4_PATTERN = Pattern.compile(//
+            "^(2(5[0-5]{1}|[0-4]\\d{1})|[0-1]?\\d{1,2})(\\.(2(5[0-5]{1}|[0-4]\\d{1})|[0-1]?\\d{1,2})){3}$"//
+    );
 
     /**
      * 获得本机网卡物理地址
@@ -66,13 +73,22 @@ public class NetworkHelper {
     }
 
     /**
-     * 获得本机IP地址
-     * @return 本机IP地址
+     * 获得本机IP(v4)地址
+     * @return 本机IP(v4)地址
      */
     public static final String getHostAddress() {
         try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+                NetworkInterface networkInterface = en.nextElement();
+                for (Enumeration<InetAddress> addrs = networkInterface.getInetAddresses(); addrs.hasMoreElements();) {
+                    String host = addrs.nextElement().getHostAddress();
+                    if (host != null && !ANYHOST.equals(host) && !LOCALHOST.equals(host) && IPV4_PATTERN.matcher(host).matches()) {
+                        return host;
+                    }
+                }
+            }
             return InetAddress.getLocalHost().getHostAddress();
-        } catch (Exception e) {
+        } catch (SocketException | UnknownHostException e) {
             LOGGER.error("?", e);
             return "";
         }
