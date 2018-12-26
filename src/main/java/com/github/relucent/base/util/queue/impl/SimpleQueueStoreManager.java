@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Stream;
 
 import com.github.relucent.base.util.queue.Distinct;
 import com.github.relucent.base.util.queue.QueueStore;
@@ -21,7 +20,7 @@ public class SimpleQueueStoreManager<T> implements QueueStoreManager<T> {
     private final boolean dynamic;
 
     public SimpleQueueStoreManager() {
-        this(NoneDistinct.instance());
+        this(NoneDistinct.<T>instance());
     }
 
     public SimpleQueueStoreManager(Distinct<T> distinct) {
@@ -32,18 +31,22 @@ public class SimpleQueueStoreManager<T> implements QueueStoreManager<T> {
         this(queueBuilder, (String[]) null);
     }
 
-    public SimpleQueueStoreManager(Distinct<T> distinct, String... cacheNames) {
+    public SimpleQueueStoreManager(final Distinct<T> distinct, String... cacheNames) {
         this(new QueueStoreBuilder<T>() {
             @Override
             public QueueStore<T> build() {
-                return new SimpleQueueStore<>(distinct);
+                return new SimpleQueueStore<T>(distinct);
             }
         }, cacheNames);
     }
 
     public SimpleQueueStoreManager(QueueStoreBuilder<T> queueBuilder, String... cacheNames) {
         if (cacheNames != null && cacheNames.length > 0) {
-            Stream.of(cacheNames).distinct().forEach(name -> this.queueMap.put(name, createQueue(name)));
+            for (String name : cacheNames) {
+                if (!this.queueMap.containsKey(name)) {
+                    this.queueMap.put(name, createQueue(name));
+                }
+            }
             this.dynamic = false;
         } else {
             this.dynamic = true;

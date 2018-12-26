@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class TreeUtil {
 
-    private static final String PATH_SEPARATOR="/";
+    private static final String PATH_SEPARATOR = "/";
 
     /**
      * 构建树模型
@@ -135,7 +135,6 @@ public class TreeUtil {
     }
 
     /** 节点适配器 */
-    // @FunctionalInterface
     public static interface NodeAdapter<T, N extends Node<N>> {
         /**
          * 将数据模型转换为树节点模型
@@ -147,8 +146,18 @@ public class TreeUtil {
 
     /** 默认过滤器(不做筛选) */
     @SuppressWarnings("rawtypes")
-    public static final NodeFilter DEFAULT_NODE_FILTER=new NodeFilter(){@Override public boolean accept(Object model,int depth,boolean leaf){return true;}};
+    public static final NodeFilter DEFAULT_NODE_FILTER = new NodeFilter() {
+        @Override
+        public boolean accept(Object model, int depth, boolean leaf) {
+            return true;
+        }
+    };
 
     /** 默认排序比较器(代表不排序) */
-    private static final Comparator<?> NONE_COMPARATOR=new Comparator<Object>(){@Override public int compare(Object o1,Object o2){return 0;}};
+    private static final Comparator<?> NONE_COMPARATOR = new Comparator<Object>() {
+        @Override
+        public int compare(Object o1, Object o2) {
+            return 0;
+        }
+    };
 }

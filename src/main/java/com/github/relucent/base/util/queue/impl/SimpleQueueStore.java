@@ -19,7 +19,7 @@ public class SimpleQueueStore<T> implements QueueStore<T> {
 
     // ==============================Constructors=====================================
     public SimpleQueueStore() {
-        this(NoneDistinct.instance());
+        this(NoneDistinct.<T>instance());
     }
 
     public SimpleQueueStore(Distinct<T> distinct) {
