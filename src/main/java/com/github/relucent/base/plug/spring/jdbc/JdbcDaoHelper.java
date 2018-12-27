@@ -22,6 +22,7 @@ public class JdbcDaoHelper {
 
     /**
      * 查询单个记录
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param rowMapper 行映射
@@ -34,6 +35,7 @@ public class JdbcDaoHelper {
 
     /**
      * 分页查询
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param offset 第一条记录索引
@@ -55,6 +57,7 @@ public class JdbcDaoHelper {
 
     /**
      * 分页查询
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param pagination 分页条件
@@ -70,6 +73,7 @@ public class JdbcDaoHelper {
 
     /**
      * 分页查询
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param offset 第一条记录索引
@@ -103,6 +107,7 @@ public class JdbcDaoHelper {
 
     /**
      * 分页查询
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param pagination 分页条件
@@ -132,6 +137,7 @@ public class JdbcDaoHelper {
 
     /**
      * 查询SQL能查询到的记录总数
+     * @param <T> 查询的结果泛型
      * @param sql 查询语句
      * @param args 查询参数
      * @param offset 第一条记录索引

@@ -17,6 +17,9 @@ public class TreeUtil {
 
     /**
      * 构建树模型
+     * @param <T> 原始数据类型泛型
+     * @param <N> 数节点类型泛型
+     * @param <I> ID类型泛型
      * @param parentId 上级节点ID
      * @param data 数据
      * @param adapter 节点适配器
@@ -32,6 +35,9 @@ public class TreeUtil {
 
     /**
      * 构建树模型
+     * @param <T> 原始数据类型泛型
+     * @param <N> 数节点类型泛型
+     * @param <I> ID类型泛型
      * @param parentId 上级节点ID
      * @param data 数据
      * @param adapter 节点适配器
@@ -47,6 +53,9 @@ public class TreeUtil {
 
     /**
      * 构建树模型
+     * @param <T> 原始数据类型泛型
+     * @param <N> 数节点类型泛型
+     * @param <I> ID类型泛型
      * @param parentId 上级节点ID
      * @param data 数据
      * @param adapter 节点适配器
@@ -77,6 +86,8 @@ public class TreeUtil {
 
     /**
      * 递归设置 ID_PATH
+     * @param <T> 原始数据类型泛型
+     * @param <I> ID类型泛型
      * @param data 数据
      * @param access ID获取器
      * @param parentId 上级ID
@@ -96,6 +107,7 @@ public class TreeUtil {
     /**
      * 默认的节点过滤器
      * @return 默认的节点过滤器
+     * @param <T> 数据类型泛型
      */
     @SuppressWarnings("unchecked")
     public static <T> NodeFilter<T> defaultFilter() {
@@ -103,22 +115,38 @@ public class TreeUtil {
     }
 
 
-    /** ID获取器 */
+    /**
+     * ID获取器
+     * @param <T> 数据类型泛型
+     * @param <I> ID类型泛型
+     */
     public static interface IdAccess<T, I> {
-        /** 获得ID */
+        /**
+         * 获得ID
+         * @param model 模型对象
+         * @return 节点ID
+         */
         I getId(T model);
 
-        /** 获得父ID */
+        /**
+         * 获得父节点ID
+         * @param model 模型对象
+         * @return 父节点ID
+         */
         I getParentId(T model);
     }
 
-    /** 节点过滤器 */
+    /**
+     * 节点过滤器
+     * @param <T> 数据类型泛型
+     */
     @FunctionalInterface
     public static interface NodeFilter<T> {
         /**
          * 判断树中是否应含有该节点
-         * @param entity 节点代表的的对象
+         * @param model 节点代表的的对象
          * @param depth 节点在树中所在的层次
+         * @param leaf 是否叶子节点
          * @return 如果树中不包含该节点，则返回true，否则返回false。
          */
         boolean accept(T model, int depth, boolean leaf);
@@ -134,7 +162,11 @@ public class TreeUtil {
         }
     }
 
-    /** 节点适配器 */
+    /**
+     * 节点适配器
+     * @param <T> 模型对象类型泛型
+     * @param <N> 节点对象类型泛型
+     */
     public static interface NodeAdapter<T, N extends Node<N>> {
         /**
          * 将数据模型转换为树节点模型

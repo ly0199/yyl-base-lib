@@ -53,7 +53,7 @@ public class FileUtil {
 
     /**
      * 获得文件名称
-     * @param filename 文件路径
+     * @param path 文件路径
      * @return 文件名称
      */
     public static String getName(String path) {
@@ -69,12 +69,12 @@ public class FileUtil {
      * @param path 文件路径
      * @return 最后一个路径分割位置
      */
-    private static int indexOfLastSeparator(String filename) {
-        if (filename == null) {
+    private static int indexOfLastSeparator(String path) {
+        if (path == null) {
             return -1;
         }
-        int lastUnixPos = filename.lastIndexOf(UNIX_SEPARATOR);
-        int lastWindowsPos = filename.lastIndexOf(WINDOWS_SEPARATOR);
+        int lastUnixPos = path.lastIndexOf(UNIX_SEPARATOR);
+        int lastWindowsPos = path.lastIndexOf(WINDOWS_SEPARATOR);
         return Math.max(lastUnixPos, lastWindowsPos);
     }
 

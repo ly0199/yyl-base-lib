@@ -10,7 +10,7 @@ import com.github.relucent.base.util.bean.mapping.BeanMapAdapterProcessor;
 
 
 /**
- * <功能描述> JavaObject=>JSON 映射配置(Bean转Map解析器的配置项)
+ * JavaObject JSON 映射配置(Bean转Map解析器的配置项)
  * @version 0.02-20091211
  * @author YaoYiLang
  */
@@ -84,8 +84,8 @@ public class MapConfig {
     }
 
     /**
-     * 转换成JSON时需要序列化的字段
-     * @param include
+     * 转换时需要序列化的字段
+     * @param includes 设置需要包含的字段
      */
     public void setIncludeFields(String... includes) {
         for (String include : includes) {
@@ -94,8 +94,8 @@ public class MapConfig {
     }
 
     /**
-     * 转换成JSON时需要排除的字段
-     * @param excludes
+     * 转换时需要排除的字段
+     * @param excludes 设置需要排除的字段
      */
     public void setExcludeFields(String... excludes) {
         for (String exclude : excludes) {
@@ -104,9 +104,9 @@ public class MapConfig {
     }
 
     /**
-     * 转换成JSON时需要排除的字段
-     * @param 指定的类
-     * @param excludes
+     * 转换时需要排除的字段
+     * @param clazz 指定的类
+     * @param excludes 设置需要排除的字段
      */
     public void setExcludeFields(Class<?> clazz, String... excludes) {
         configTypes.add(clazz);
@@ -121,9 +121,9 @@ public class MapConfig {
     }
 
     /**
-     * 转换成JSON时需要序列化的字段(如果不指定，默认序列化是全部字段)
-     * @param 指定的类
-     * @param includes
+     * 转换时需要序列化的字段(如果不指定，默认序列化是全部字段)
+     * @param clazz 指定的类
+     * @param includes 设置需要包含的字段
      */
     public void setIncludeFields(Class<?> clazz, String... includes) {
         configTypes.add(clazz);

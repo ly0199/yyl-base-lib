@@ -40,11 +40,11 @@ public class PageUtil {
      * @param limit 每页最大记录数
      * @return 最大页数
      */
-    public static int getPageCount(int count, int limit) {
-        if ((count < 0) || (limit < 1)) {
+    public static int getPageCount(int total, int limit) {
+        if ((total < 0) || (limit < 1)) {
             return -1;
         } else {
-            return (int) ((count - 1) / limit) + 1;
+            return (int) ((total - 1) / limit) + 1;
         }
     }
 }

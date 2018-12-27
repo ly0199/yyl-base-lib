@@ -17,8 +17,8 @@ import com.github.relucent.base.util.bean.mapping.BeanMapPopulater;
 import com.github.relucent.base.util.bean.mapping.BeanMapper;
 
 /**
- * <功能描述>BEAN操作工具类，扩展Apache Commons BeanUtils，提供一些反射方面缺失的封装。
- * @author YYL
+ * BEAN操作工具类，扩展Apache Commons BeanUtils，提供一些反射方面缺失的封装。
+ * @author _yyl
  */
 public class BeanUtil {
 
@@ -53,17 +53,17 @@ public class BeanUtil {
      * @param src 来源对象
      * @param dest 接待对象
      */
-    public static <T> void simpleMerge(Object dest, Object src) {
+    public static void simpleMerge(Object dest, Object src) {
         BeanMapper.copy(src, dest);
     }
 
     /**
-     * 暴力设置当前类声明的private/protected属性。
-     * @param object 对象。
-     * @param propertyName属性名。
-     * @param newValue 新值。
-     * @throws IllegalAccessException
-     * @throws NoSuchFieldException
+     * 暴力设置当前类声明的 private/protected 属性
+     * @param object 对象
+     * @param propertyName 属性名
+     * @param newValue 新值
+     * @throws IllegalAccessException 访问异常
+     * @throws NoSuchFieldException 没有对应字段
      */
     public static void setDeclaredProperty(Object object, String propertyName, Object newValue) throws IllegalAccessException, NoSuchFieldException {
         assertNotNull(object);
@@ -73,12 +73,12 @@ public class BeanUtil {
     }
 
     /**
-     * 暴力获取当前类声明的private/protected属性。
-     * @param object对象。
-     * @param propertyName属性名。
-     * @return 获取到的属性。
-     * @throws IllegalAccessException
-     * @throws NoSuchFieldException
+     * 暴力获取当前类声明的private/protected属性
+     * @param object 对象
+     * @param propertyName 属性名
+     * @return 获取到的属性
+     * @throws IllegalAccessException 访问异常
+     * @throws NoSuchFieldException 没有对应字段
      */
     public static Object getDeclaredProperty(Object object, String propertyName) throws IllegalAccessException, NoSuchFieldException {
         assertNotNull(object);
@@ -88,11 +88,11 @@ public class BeanUtil {
     }
 
     /**
-     * 暴力设置当前类声明的private/protected属性。
-     * @param object对象。
-     * @param field 属性名。
-     * @param newValue新值。
-     * @throws IllegalAccessException
+     * 暴力设置当前类声明的private/protected属性
+     * @param object 对象
+     * @param field 属性名
+     * @param newValue 新值
+     * @throws IllegalAccessException 访问异常
      */
     public static void setDeclaredProperty(Object object, Field field, Object newValue) throws IllegalAccessException {
         boolean accessible = field.isAccessible();
@@ -102,11 +102,11 @@ public class BeanUtil {
     }
 
     /**
-     * 暴力获取当前类声明的private/protected属性。
-     * @param object对象。
-     * @param field 属性。
-     * @return 获取到的属性。
-     * @throws IllegalAccessException
+     * 暴力获取当前类声明的private/protected属性
+     * @param object 对象
+     * @param field 属性
+     * @return 获取到的属性
+     * @throws IllegalAccessException 访问异常
      */
     public static Object getDeclaredProperty(Object object, Field field) throws IllegalAccessException {
         assertNotNull(object);
@@ -119,10 +119,10 @@ public class BeanUtil {
     }
 
     /**
-     * 获得field的getter名称。
-     * @param type 类型。
-     * @param fieldName属性名。
-     * @return 取值方法名。
+     * 获得field的getter名称
+     * @param type 类型
+     * @param fieldName 属性名
+     * @return 取值方法名
      */
     public static String getAccessorName(Class<?> type, String fieldName) {
         assertHasText(fieldName);
@@ -135,10 +135,10 @@ public class BeanUtil {
     }
 
     /**
-     * 获得field的getter名称。
-     * @param type 类型。
-     * @param fieldName 属性名。
-     * @return 取值方法名。
+     * 获得field的getter名称
+     * @param type 类型
+     * @param fieldName 属性名
+     * @return 取值方法名
      */
     public static Method getAccessor(Class<?> type, String fieldName) {
         try {
@@ -149,23 +149,20 @@ public class BeanUtil {
     }
 
     /**
-     * 调用当前类声明的private/protected方法。
-     * @param object 对象。
-     * @param methodName 方法名。
-     * @param param 方法参数。
-     * @return 方法调用结果。
-     * @throws NoSuchMethodException
-     * @throws IllegalAccessException
-     * @throws InvocationTargetException
+     * 调用当前类声明的private/protected方法
+     * @param object 对象
+     * @param methodName 方法名
+     * @param param 方法参数
+     * @return 方法调用结果
+     * @throws IllegalAccessException 访问异常
+     * @throws NoSuchMethodException 没有对应方法
+     * @throws InvocationTargetException 调用目标异常
      */
     public static Object invokePrivateMethod(Object object, String methodName, Object param)
-            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+            throws IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         return invokePrivateMethod(object, methodName, new Object[] {param});
     }
 
-    /***************************************************************************************************************************************************************************************************
-     * 、
-     */
     /**
      * 循环向上转型,获取对象的DeclaredField.
      * @param object 对象实例

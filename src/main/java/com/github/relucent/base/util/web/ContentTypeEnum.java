@@ -705,12 +705,18 @@ public enum ContentTypeEnum {
         this.extension = extension;
     }
 
-    /** 类型字符串 */
+    /**
+     * 获得类型字符串
+     * @return 类型字符串
+     */
     public String mimeType() {
         return mimeType;
     }
 
-    /** 文件后缀名 */
+    /**
+     * 获得文件后缀名
+     * @return 文件后缀名
+     */
     public String extension() {
         return extension;
     }
@@ -727,7 +733,7 @@ public enum ContentTypeEnum {
     /**
      * 根据文件后缀获得内容类型
      * @param extension 文件后缀
-     * @param defaultContentType 默认内容类型
+     * @param defaultType 默认内容类型
      * @return 内容类型
      */
     public static ContentTypeEnum getByExtension(String extension, ContentTypeEnum defaultType) {

@@ -21,10 +21,12 @@ public class AwareScaner {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AwareScaner.class);
 
+
     /**
      * 查找匹配的类列表
      * @param pattern 表达式
      * @return 类列表
+     * @throws IOException 出现IO异常
      */
     // classpath*:com/github/relucent/**/*.class
     public Class<?>[] findClasses(String pattern) throws IOException {

@@ -30,7 +30,7 @@ public class JsonEncoder {
 
     /**
      * 将Java对象转化为JSON字符串
-     * @param obj java对象
+     * @param object java对象
      * @return JSON字符串
      */
     public String encode(Object object) {
@@ -39,7 +39,7 @@ public class JsonEncoder {
 
     /**
      * 将Java对象转化为JSON字符串
-     * @param obj java对象
+     * @param object java对象
      * @return JSON字符串
      */
     private String encodeBasic(Object object) {

@@ -53,42 +53,68 @@ public class Page<T> implements Serializable {
     }
 
     // =================================Methods================================================
-    /** 获取从第几条数据开始查询 */
+    /**
+     * 获取从第几条数据开始查询
+     * @return 开始查询索引
+     */
     public int getOffset() {
         return offset;
     }
 
-    /** 设置从第几条数据开始查询 */
+    /**
+     * 设置从第几条数据开始查询
+     * @param offset 开始查询索引
+     */
     public void setOffset(int offset) {
         this.offset = offset;
     }
 
-    /** 获取每页显示条数 */
+    /**
+     * 获取每页查询记录数
+     * @return 每页查询记录数
+     */
     public int getLimit() {
         return limit;
     }
 
-    /** 设置每页显示条数 */
+    /**
+     * 设置每页显示条数
+     * @param limit 每页查询记录数
+     */
     public void setLimit(int limit) {
         this.limit = limit;
     }
 
-    /** 设置总条数 */
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    /** 获取总条数 */
+    /**
+     * 获取总记录数
+     * @return 总记录数
+     */
     public long getTotal() {
         return total;
     }
 
-    /** 获取当前页数据 */
+    /**
+     * 设置总记录数
+     * @param total 总记录数
+     */
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+
+
+    /**
+     * 获取当前页数据
+     * @return 当前页数据
+     */
     public List<T> getRecords() {
         return records;
     }
 
-    /** 设置当前页数据 */
+    /**
+     * 设置当前页数据
+     * @param records 设置页数据
+     */
     public void setRecords(List<T> records) {
         this.records = records;
     }

@@ -2,12 +2,11 @@ package com.github.relucent.base.plug.mybatis;
 
 import java.util.List;
 
-import com.github.relucent.base.util.jdbc.Dialect;
 import com.github.relucent.base.util.page.Page;
 import com.github.relucent.base.util.page.Pagination;
 
 /**
- * _Mybatis 分页工具类<br/>
+ * _Mybatis 分页工具类
  * @author _yyl
  */
 public class MybatisHelper {
@@ -17,6 +16,7 @@ public class MybatisHelper {
 
     /**
      * 分页查询
+     * @param <T> 查询的实体类型
      * @param pagination 分页条件
      * @param select 查询方法
      * @return 分页查询结果
@@ -33,14 +33,6 @@ public class MybatisHelper {
         } finally {
             release();
         }
-    }
-
-    /**
-     * 获得数据库方言
-     * @return 数据库方言
-     */
-    protected Dialect getCurrentDialect() {
-        return null;
     }
 
     /**

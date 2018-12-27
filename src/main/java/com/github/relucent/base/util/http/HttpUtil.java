@@ -10,9 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -51,7 +48,7 @@ public class HttpUtil {
     // =================================Methods================================================
     /**
      * 发送GET请求
-     * @param url
+     * @param url 请求地址
      * @return 请求的结果
      */
     public static String get(String url) {
@@ -60,7 +57,7 @@ public class HttpUtil {
 
     /**
      * 发送GET请求
-     * @param url
+     * @param url 请求地址
      * @param queryParams URL参数
      * @return 请求的结果
      */
@@ -70,7 +67,7 @@ public class HttpUtil {
 
     /**
      * 发送GET请求
-     * @param url
+     * @param url 请求地址
      * @param queryParams URL参数
      * @param headers HTTP头数据
      * @return 请求的结果
@@ -86,7 +83,7 @@ public class HttpUtil {
 
     /**
      * 发送POST请求
-     * @param url
+     * @param url 请求地址
      * @return 请求的结果
      */
     public static String post(String url) {
@@ -95,7 +92,7 @@ public class HttpUtil {
 
     /**
      * 发送POST请求
-     * @param url
+     * @param url 请求地址
      * @param queryParams 查询参数
      * @return 请求的结果
      */
@@ -105,7 +102,7 @@ public class HttpUtil {
 
     /**
      * 发送POST请求
-     * @param url
+     * @param url 请求地址
      * @param queryParams 查询参数
      * @param headers HTTP头数据
      * @return 请求的结果
@@ -117,7 +114,7 @@ public class HttpUtil {
 
     /**
      * 发送POST请求
-     * @param url
+     * @param url 请求地址
      * @param data 提交数据
      * @param headers HTTP头数据
      * @return 请求的结果
@@ -154,12 +151,13 @@ public class HttpUtil {
 
     /**
      * 获得一个HTTP连接
-     * @param url URL
+     * @param url 请求地址
      * @param method 请求的方法
      * @param headers HTTP头数据
+     * @return HTTP连接对象
+     * @throws IOException 出现IO错误，抛出异常
      */
-    public static HttpURLConnection getConnection(String url, String method, Map<String, String> headers)
-            throws IOException, NoSuchAlgorithmException, NoSuchProviderException, KeyManagementException {
+    public static HttpURLConnection getConnection(String url, String method, Map<String, String> headers) throws IOException {
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         ignoreTLS(conn);
         conn.setRequestMethod(method);

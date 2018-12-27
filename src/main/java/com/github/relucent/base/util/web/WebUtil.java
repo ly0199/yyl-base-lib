@@ -14,7 +14,7 @@ import com.github.relucent.base.util.io.FileUtil;
 
 /**
  * WEB工具类
- * @author YYL
+ * @author _yyl
  */
 public class WebUtil {
 
@@ -128,6 +128,7 @@ public class WebUtil {
      * @param json JSON字符串
      * @param request HTTP请求
      * @param response HTTP响应
+     * @throws IOException IO异常
      */
     public static void writeJson(String json, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setCharacterEncoding("UTF-8");
@@ -153,6 +154,7 @@ public class WebUtil {
      * @param request HTTP请求
      * @param response HTTP响应
      * @param mode 下载模式
+     * @throws IOException IO异常
      */
     public static void download(DownloadFile file, HttpServletRequest request, HttpServletResponse response, DownloadMode mode) throws IOException {
         String name = file.getName();
@@ -240,16 +242,28 @@ public class WebUtil {
 
     /** 下载文件(接口类) */
     public static interface DownloadFile {
-        /** 文件名称 */
+        /**
+         * 获得文件名称
+         * @return 文件名称
+         */
         String getName();
 
-        /** 内容类型 */
+        /**
+         * 获得内容类型
+         * @return 内容类型
+         */
         String getContentType();
 
-        /** 将内容写到输出流 */
+        /**
+         * 将内容写到输出流
+         * @param output 输出流
+         */
         void writeTo(OutputStream output);
 
-        /** 文件长度 */
+        /**
+         * 获得文件长度
+         * @return 文件长度
+         */
         long getLength();
     }
 

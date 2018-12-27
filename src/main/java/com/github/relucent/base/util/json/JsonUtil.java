@@ -15,6 +15,7 @@ public class JsonUtil {
     // ===================================Methods=============================================
     /**
      * 将JAVA对象编码为JSON字符串
+     * @param <T> JAVA对象泛型
      * @param src JAVA对象
      * @return 对象的JSON字符串
      */
@@ -24,6 +25,7 @@ public class JsonUtil {
 
     /**
      * 将JSON字符串解码为JAVA对象
+     * @param <T> JAVA对象泛型
      * @param json 对象的JSON字符串
      * @param type JAVA对象类型
      * @return JSON对应的JAVA对象，如果无法解析将返回NULL.
@@ -34,6 +36,7 @@ public class JsonUtil {
 
     /**
      * 将JSON字符串，解码为JAVA对象
+     * @param <T> JAVA对象泛型
      * @param json JSON字符串
      * @param type JAVA对象类型
      * @param defaultValue 默认值

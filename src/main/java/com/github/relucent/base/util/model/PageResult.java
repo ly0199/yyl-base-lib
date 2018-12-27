@@ -7,10 +7,11 @@ import com.github.relucent.base.util.page.Pagination;
 
 /**
  * 返回结果对象(分页数据)
+ * @param <T> 列表元素数据类型泛型
  */
 @SuppressWarnings("serial")
 public class PageResult<T> extends Result<List<T>> {
-    
+
     // ==============================Fields========================================
     /** 开始查询 的数据索引号 (从0开始) */
     private int offset = 0;
@@ -36,8 +37,9 @@ public class PageResult<T> extends Result<List<T>> {
 
     /**
      * 创建分页结果对象
-     * @param page
-     * @return
+     * @param <T> 列表元素数据类型泛型
+     * @param page 分页查询的结果数据 
+     * @return 分页结果对象
      */
     public static <T> PageResult<T> of(Page<T> page) {
         return new PageResult<>(page.getOffset(), page.getLimit(), page.getRecords(), page.getTotal());

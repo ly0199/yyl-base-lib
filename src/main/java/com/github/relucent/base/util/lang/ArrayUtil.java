@@ -10,6 +10,7 @@ public class ArrayUtil {
 
     /**
      * 获得数组第一个元素
+     * @param <T> 元素类型泛型
      * @param array 数组对象
      * @return 数组第一个元素,如果数组为空返回NULL
      */

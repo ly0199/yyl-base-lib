@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * 结果对象
+ * @param <T> 返回数据泛型
  */
 @SuppressWarnings("serial")
 public class Result<T> implements Serializable {

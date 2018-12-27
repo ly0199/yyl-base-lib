@@ -39,8 +39,7 @@ public class CountableThreadPool {
 
     /**
      * 执行任务
-     * @param runnable 任务
-     * @throws InterruptedException
+     * @param task 任务
      */
     public void execute(final Runnable task) {
         if (threadAlive.get() >= poolSize) {

@@ -32,6 +32,7 @@ public class WebContextHolder {
 
     /**
      * 设置Session属性值
+     * @param <T> 属性泛型
      * @param name 属性名
      * @param value 属性值
      */
@@ -65,6 +66,7 @@ public class WebContextHolder {
 
     /**
      * 获得Session属性值
+     * @param <T> 属性泛型
      * @param name 属性名
      * @return 属性值
      */
@@ -74,6 +76,7 @@ public class WebContextHolder {
 
     /**
      * 获得Session属性值
+     * @param <T> 属性泛型
      * @param session HTTP会话
      * @param name 属性名
      * @return 属性值

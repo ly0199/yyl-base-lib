@@ -52,7 +52,7 @@ public class DialectRouteUtil {
      * 根据数据库连接获取数据库方言
      * @param conn 数据库连接
      * @return 数据库方言
-     * @throws SQLException
+     * @throws SQLException SQL异常
      */
     public static Dialect getDialect(Connection conn) throws SQLException {
         String url = conn.getMetaData().getURL();

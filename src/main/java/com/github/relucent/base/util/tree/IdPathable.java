@@ -6,9 +6,15 @@ package com.github.relucent.base.util.tree;
  */
 public interface IdPathable {
 
-    /** 获得 ID路径 */
+    /**
+     * 获得 ID路径
+     * @return ID路径
+     */
     String getIdPath();
 
-    /** 设置 ID路径 */
+    /**
+     * 设置 ID路径
+     * @param idPath ID路径
+     */
     void setIdPath(String idPath);
 }

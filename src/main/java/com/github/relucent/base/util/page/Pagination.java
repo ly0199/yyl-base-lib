@@ -49,7 +49,7 @@ public class Pagination implements Serializable {
 
     /**
      * 设置从第几条数据开始查询
-     * @param start 查询的偏移量
+     * @param offset 查询的偏移量
      */
     public void setOffset(int offset) {
         this.offset = offset;

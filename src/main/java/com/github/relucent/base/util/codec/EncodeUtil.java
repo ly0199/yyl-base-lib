@@ -18,7 +18,7 @@ public class EncodeUtil {
     }
 
     /**
-     *  将Base64字符串解码成字节数组
+     * 将Base64字符串解码成字节数组
      * @param base64 Base64字符串
      * @return 字节数组
      */
@@ -28,6 +28,8 @@ public class EncodeUtil {
 
     /**
      * URL 编码, Encode默认为UTF-8.
+     * @param input 需要编码的字符串
+     * @return 编码后字符串
      */
     public static String encodeURI(String input) {
         try {
@@ -39,6 +41,8 @@ public class EncodeUtil {
 
     /**
      * URL 解码, Encode默认为UTF-8.
+     * @param input 需要解码的字符串
+     * @return 解码后字符串
      */
     public static String decodeURI(String input) {
         try {

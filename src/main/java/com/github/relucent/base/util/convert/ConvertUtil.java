@@ -206,6 +206,8 @@ public class ConvertUtil {
 
     /**
      * 将对象转换为枚举类型
+     * @param <T> 枚举类型泛型
+     * @param enumType 枚举类型
      * @param value 待转换对象
      * @return 转换类型后的对象
      */
@@ -215,6 +217,8 @@ public class ConvertUtil {
 
     /**
      * 将对象转换为枚举类型
+     * @param <T> 枚举类型泛型
+     * @param enumType 枚举类型
      * @param value 待转换对象
      * @param defaultValue 默认值
      * @return 转换类型后的对象
@@ -263,7 +267,7 @@ public class ConvertUtil {
 
     /**
      * 将对象转换为指定的类型
-     * @param <T>
+     * @param <T> 转换类型泛型
      * @param obj 对象转换
      * @param toType 转换的目标类型
      * @param defaultValue 默认值

@@ -7,7 +7,7 @@ package com.github.relucent.base.util.jdbc;
 public interface Dialect {
 
     /**
-     * 获得分页SQL</br>
+     * 获得分页SQL
      * @param sql 原始SQL
      * @param start 第一个记录的偏移量
      * @param limit 每页查询的最大数量

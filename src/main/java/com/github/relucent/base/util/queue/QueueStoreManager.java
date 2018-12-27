@@ -9,7 +9,7 @@ public interface QueueStoreManager<T> {
 
     /**
      * 返回队列存储器
-     * @param 队列名(唯一标识)
+     * @param name 队列名(唯一标识)
      * @return 队列存储器
      */
     QueueStore<T> getQueue(String name);
