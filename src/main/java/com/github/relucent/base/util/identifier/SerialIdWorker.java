@@ -34,6 +34,8 @@ public class SerialIdWorker {
     private long lastTimestamp = -1L;
     /** 毫秒内序列 */
     private long sequence = 0L;
+    /** 序列ID后缀(为不同服务器设置不同后缀，可以防止集群环境序列ID的冲突) */
+    private String suffix = "";
 
     /**
      * 获得下一个序列ID
@@ -44,8 +46,8 @@ public class SerialIdWorker {
 
         // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
         if (timestamp < lastTimestamp) {
-            throw new RuntimeException(String.format(
-                    "Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
+            throw new RuntimeException(
+                    String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
         }
 
         // 如果是同一时间生成的，则进行毫秒内序列
@@ -72,7 +74,16 @@ public class SerialIdWorker {
             buffer.append(ZERO_CHAR);
         }
         buffer.append(appendSequence);
+        buffer.append(suffix);
         return buffer.toString();
+    }
+
+    /**
+     * 设置序列ID的后缀，为不同服务器的应用使用不同后缀，可以防止集群环境序列ID的冲突
+     * @param suffix 序列ID后缀
+     */
+    public synchronized void setSuffix(String suffix) {
+        this.suffix = suffix;
     }
 
     /**
